@@ -64,6 +64,8 @@ function day3 (a = 2) {
 
 /**
  * @see https://www.hackerrank.com/challenges/js10-inheritance/problem
+ * @see https://salesforce.stackexchange.com/questions/290816/lwc-constructor-error-must-call-super-constructor-in-derived-class-before-ac#290817
+ * @see https://javascript.info/class-inheritance
  */
 function day5 () {
   class Rectangle {
@@ -79,7 +81,7 @@ function day5 () {
 
   class Square extends Rectangle {
     constructor (w) {
-      super() // https://salesforce.stackexchange.com/questions/290816/lwc-constructor-error-must-call-super-constructor-in-derived-class-before-ac#290817
+      super() 
       this.w = w
       this.h = w
     }
