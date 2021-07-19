@@ -63,13 +63,54 @@ function day3 (a = 2) {
 }
 
 /**
+ * @see https://www.hackerrank.com/challenges/js10-arrays/problem
+ */
+function day3 () {
+  const nums = [4, 3, 99, 2, 5, 3, 5, 100]
+  const greaterToLowerDeduplicated = Array.from(
+    new Set(
+      nums.sort((l, r) => r - l)
+    )
+  )
+  return greaterToLowerDeduplicated[1]
+}
+
+/**
+ * @see 
+ */
+function day4 (a = 3, b = 4) {
+  // return {
+  //   length: a,
+  //   width: b,
+  //   perimeter: (a + b) * 2,
+  //   area: a * b
+  // }
+
+  const objects = [
+    { x: 1, y: 2 },
+    { x: 3, y: 3 }, /* return x===y */
+    { x: 4, y: 3 },
+    { x: 5, y: 4 },
+    { x: 7, y: 3 },
+  ]
+  return Object.keys(objects)
+    .reduce((totalCount, objKey) => {
+      const matchCondition = Number(objects[objKey].x) === Number(objects[objKey].y)
+      if (matchCondition) {
+        totalCount.push(objects[objKey])
+      }
+      return totalCount
+    }, []).length
+}
+
+/**
  * @see https://www.hackerrank.com/challenges/js10-inheritance/problem
  * @see https://salesforce.stackexchange.com/questions/290816/lwc-constructor-error-must-call-super-constructor-in-derived-class-before-ac#290817
  * @see https://javascript.info/class-inheritance
  */
 function day5 () {
   class Rectangle {
-    constructor (w, h) {
+    constructor(w, h) {
       this.w = w
       this.h = h
     }
@@ -80,11 +121,16 @@ function day5 () {
   }
 
   class Square extends Rectangle {
-    constructor (w) {
-      super() 
+    constructor(w) {
+      super()
       this.w = w
       this.h = w
     }
   }
   return new Square(2).area()
 }
+
+/**
+ * @day8
+ * @see https://www.hackerrank.com/challenges/js10-create-a-button
+ */
