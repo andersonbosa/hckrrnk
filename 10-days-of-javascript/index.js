@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * @link https://www.hackerrank.com/challenges/js10-switch/leaderboard
+ * @see https://www.hackerrank.com/challenges/js10-switch/problem
  */
 function day2 (s = 'potato') {
   /** @sol_1 */
@@ -42,4 +42,47 @@ function day2 (s = 'potato') {
   //   }
   //   return foundGroup || ''
   // }, '')
+}
+
+/**
+ * @see https://www.hackerrank.com/challenges/js10-throw/problem
+ */
+function day3 (a = 2) {
+  /*
+   * Complete the isPositive function.
+   * If 'a' is positive, return "YES".
+   * If 'a' is 0, throw an Error with the message "Zero Error"
+   * If 'a' is negative, throw an Error with the message "Negative Error"
+   */
+  if (a === 0) {
+    throw new Error('Zero Error')
+  } else if (a < 0) {
+    throw new Error('Negative Error')
+  }
+  return a > 0 && 'YES'
+}
+
+/**
+ * @see https://www.hackerrank.com/challenges/js10-inheritance/problem
+ */
+function day5 () {
+  class Rectangle {
+    constructor (w, h) {
+      this.w = w
+      this.h = h
+    }
+  }
+
+  Rectangle.prototype.area = function closedScopeFunctionArea () {
+    return this.w * this.h
+  }
+
+  class Square extends Rectangle {
+    constructor (w) {
+      super() // https://salesforce.stackexchange.com/questions/290816/lwc-constructor-error-must-call-super-constructor-in-derived-class-before-ac#290817
+      this.w = w
+      this.h = w
+    }
+  }
+  return new Square(2).area()
 }
